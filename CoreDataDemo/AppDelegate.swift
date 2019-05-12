@@ -8,16 +8,25 @@
 
 import UIKit
 import CoreData
-
+import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var userTemp : User?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.setUpIQKeyboradManager()
         return true
+    }
+    func setUpIQKeyboradManager()
+    {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
